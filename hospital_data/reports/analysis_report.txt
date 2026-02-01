@@ -230,3 +230,171 @@ HeartRate_Monitor_B: 15 entries (First: 2026-02-01 02:00:22, Last: 2026-02-01 02
 
 Total log entries:       30
 
+=========================================
+Analysis Report - 2026-02-01 16:08:13
+=========================================
+Log File: Heart Rate (heart_rate.log)
+Analysis Date: 2026-02-01 16:08:13
+
+Device analysis for Heart Rate log:
+=========================================
+HeartRate_Monitor_A: 20 entries (First: 2026-02-01 16:07:54, Last: 2026-02-01 16:08:13)
+HeartRate_Monitor_B: 20 entries (First: 2026-02-01 16:07:54, Last: 2026-02-01 16:08:13)
+
+Total log entries:       38
+
+=========================================
+Analysis Report - 2026-02-01 16:40:17
+=========================================
+Log File: Heart Rate (heart_rate.log)
+Analysis Date: 2026-02-01 16:40:17
+
+Device analysis for Heart Rate log:
+=========================================
+HeartRate_Monitor_A: 62 entries (First: 2026-02-01 16:39:15, Last: 2026-02-01 16:40:17)
+HeartRate_Monitor_B: 62 entries (First: 2026-02-01 16:39:15, Last: 2026-02-01 16:40:17)
+
+Total log entries:      124
+
+=========================================
+Analysis Report - 2026-02-01 17:23:12
+=========================================
+Log File: Heart Rate (heart_rate.log)
+Analysis Date: 2026-02-01 17:23:12
+
+Device analysis for Heart Rate log:
+=========================================
+HeartRate_Monitor_A: 40 entries (First: 2026-02-01 17:22:33, Last: 2026-02-01 17:23:12)
+HeartRate_Monitor_B: 40 entries (First: 2026-02-01 17:22:33, Last: 2026-02-01 17:23:12)
+
+Total log entries:       80
+
+=========================================
+Analysis Report - 2026-02-01 17:27:35
+=========================================
+Log File: Heart Rate (heart_rate.log)
+Analysis Date: 2026-02-01 17:27:35
+
+Device analysis for Heart Rate log:
+=========================================
+HeartRate_Monitor_A: 302 entries (First: 2026-02-01 17:22:33, Last: 2026-02-01 17:27:35)
+HeartRate_Monitor_B: 302 entries (First: 2026-02-01 17:22:33, Last: 2026-02-01 17:27:35)
+
+Total log entries:      604
+
+=========================================
+Analysis Report - 2026-02-01 17:44:34
+=========================================
+Log File: Heart Rate (heart_rate.log)
+Analysis Date: 2026-02-01 17:44:34
+
+Device analysis for Heart Rate log:
+=========================================
+HeartRate_Monitor_A: 1 entries (First: 2024-06-18 10:30:00, Last: 2024-06-18 10:30:00)
+HeartRate_Monitor_B: 1 entries (First: 2024-06-18 10:31:00, Last: 2024-06-18 10:31:00)
+
+Total log entries:        2
+
+=========================================
+Analysis Report - 2026-02-01 17:54:10
+=========================================
+Log File: Heart Rate (heart_rate.log)
+Analysis Date: 2026-02-01 17:54:10
+
+
+Total log entries: 0
+
+=========================================
+Analysis Report - 2026-02-01 17:58:18
+=========================================
+Log File: Heart Rate (heart_rate.log)
+Analysis Date: 2026-02-01 17:58:18
+
+
+Total log entries: 0
+
+=========================================
+Analysis Report - 2026-02-01 18:00:12
+=========================================
+Log File: Heart Rate (heart_rate.log)
+Analysis Date: 2026-02-01 18:00:12
+
+
+Total log entries: 0
+
+=========================================
+Analysis Report - 2026-02-01 18:05:18
+=========================================
+Log File: Heart Rate (heart_rate.log)
+Analysis Date: 2026-02-01 18:05:18
+
+Device analysis for Heart Rate log:
+=========================================
+HeartRate_Monitor_A: 82 entries (First: 2026-02-01 18:04:18, Last: 2026-02-01 18:05:18)
+HeartRate_Monitor_B: 82 entries (First: 2026-02-01 18:04:18, Last: 2026-02-01 18:05:18)
+
+Total log entries:      164
+
+=========================================
+Analysis Report - 2026-02-01 18:05:38
+=========================================
+Log File: Temperature (temperature.log)
+Analysis Date: 2026-02-01 18:05:38
+
+Device analysis for Temperature log:
+=========================================
+Temp_Recorder_A: 8762 entries (First: 2026-02-01 01:57:03, Last: 2026-02-01 18:05:38)
+Temp_Recorder_B: 8762 entries (First: 2026-02-01 01:57:03, Last: 2026-02-01 18:05:38)
+
+Total log entries:    17524
+
+=========================================
+Analysis Report - 2026-02-01 22:23:24
+=========================================
+Log File: Heart Rate (heart_rate.log)
+Analysis Date: 2026-02-01 22:23:24
+
+Device analysis for Heart Rate log:
+=========================================
+HeartRate_Monitor_A: 475 entries (First: 2026-02-01 18:04:18, Last: 2026-02-01 22:23:24)
+HeartRate_Monitor_B: 475 entries (First: 2026-02-01 18:04:18, Last: 2026-02-01 22:23:24)
+
+Total log entries:      950
+
+=========================================
+Analysis Report - 2026-02-01 22:37:28
+=========================================
+Log File: Heart Rate (heart_rate.log)
+Analysis Date: 2026-02-01 22:37:28
+
+Device analysis for Heart Rate log:
+=========================================
+HeartRate_Monitor_A: 819 entries (First: 2026-02-01 22:23:47, Last: 2026-02-01 22:37:28)
+HeartRate_Monitor_B: 819 entries (First: 2026-02-01 22:23:47, Last: 2026-02-01 22:37:28)
+
+Total log entries:     1638
+
+=========================================
+Analysis Report - Sun Feb  1 23:18:12 CAT 2026
+Log file: temperature.log
+Device analysis for Temperature log:
+=========================================
+
+Total log entries:      0
+
+=========================================
+Analysis Report - Sun Feb  1 23:18:12 CAT 2026
+Log file: water_usage.log
+Device analysis for Water Usage log:
+=========================================
+
+Total log entries:      0
+
+=========================================
+Analysis Report - Sun Feb  1 23:40:20 CAT 2026
+Log file: heart_rate.log
+Device analysis for Heart Rate log:
+=========================================
+
+Total log entries:      0
+
