@@ -1,114 +1,86 @@
 #!/bin/bash
-# Log Archival System 
 
-RED='\033[0;31m'
-GREEN='\033[0;32m'
-YELLOW='\033[1;33m'
-BLUE='\033[0;34m'
-NC='\033[0m'
+# Configuration
+LOG_FILES=("heart_rate_log.log" "temperature_log.log" "water_usage_log.log")
+LOG_NAMES=("Heart Rate" "Temperature" "Water Usage")
+ARCHIVE_SUBDIRS=("heart_data_archive" "temperature_data_archive" "water_usage_data_archive")
 
-HOSPITAL_DATA="hospital_data"
-ACTIVE_LOGS="$HOSPITAL_DATA/active_logs"
-ARCHIVE_DIR="$HOSPITAL_DATA/archived_logs"
+ACTIVE_LOGS="hospital_data/active_logs"
+ARCHIVE_BASE="hospital_data/archived_logs"
 
-HEART_ARCHIVE="$ARCHIVE_DIR/heart_data_archive"
-TEMP_ARCHIVE="$ARCHIVE_DIR/temperature_data_archive"
-WATER_ARCHIVE="$ARCHIVE_DIR/water_usage_data_archive"
-
-create_directories() {
-    mkdir -p "$ACTIVE_LOGS"
-    mkdir -p "$HEART_ARCHIVE"
-    mkdir -p "$TEMP_ARCHIVE"
-    mkdir -p "$WATER_ARCHIVE"
-}
-
-display_menu() {
-    clear
-    echo "=========================================="
-    echo "     HOSPITAL LOG ARCHIVAL SYSTEM"
-    echo "=========================================="
+show_menu() {
     echo "Select log to archive:"
-    echo "  1) heart_rate_log.log"
-    echo "  2) temperature_log.log"
-    echo "  3) water_usage_log.log"
-    echo "  4) Exit"
-    echo "=========================================="
+    echo "1) Heart Rate"
+    echo "2) Temperature"
+    echo "3) Water Usage"
+    printf "Enter choice (1-3): "
 }
 
-archive_log() {
-    case $1 in
-        1)
-            log="heart_rate_log.log"
-            archive="$HEART_ARCHIVE"
-            name="Heart Rate"
-            prefix="heart_rate"
-            ;;
-        2)
-            log="temperature_log.log"
-            archive="$TEMP_ARCHIVE"
-            name="Temperature"
-            prefix="temperature"
-            ;;
-        3)
-            log="water_usage_log.log"
-            archive="$WATER_ARCHIVE"
-            name="Water Usage"
-            prefix="water_usage"
-            ;;
-    esac
-    
-    source="$ACTIVE_LOGS/$log"
-    
-    if [ ! -f "$source" ]; then
-        echo -e "${YELLOW}$name log not found. Creating empty file.${NC}"
-        touch "$source"
-        return 0
-    fi
-    
-    if [ ! -s "$source" ]; then
-        echo -e "${YELLOW}$name log is empty. Nothing to archive.${NC}"
-        return 0
-    fi
-    
-    timestamp=$(date +"%Y-%m-%d_%H:%M:%S")
-    dest="$archive/${prefix}_${timestamp}.log"
-    
-    echo -e "${YELLOW}Archiving $name log...${NC}"
-    
-    if mv "$source" "$dest"; then
-        echo -e "${GREEN}✓ Successfully archived${NC}"
-        touch "$source"
-        entries=$(wc -l < "$dest" 2>/dev/null || echo "0")
-        echo -e "${GREEN}✓ Archived $entries entries${NC}"
-    else
-        echo -e "${RED}✗ Failed to archive${NC}"
-    fi
+get_timestamp() {
+    date +"%Y-%m-%d_%H:%M:%S"
 }
 
+# Main execution
 main() {
-    create_directories
+    # Display menu and get user input
+    show_menu
+    read -r choice
     
-    while true; do
-        display_menu
-        read -p "Enter choice (1-4): " choice
-        
-        case $choice in
-            1|2|3)
-                echo ""
-                archive_log "$choice"
-                ;;
-            4)
-                echo -e "${GREEN}Exiting. Goodbye!${NC}"
-                exit 0
-                ;;
-            *)
-                echo -e "${RED}Invalid choice. Enter 1-4${NC}"
-                ;;
-        esac
-        
-        echo ""
-        read -p "Press Enter to continue..."
-    done
+    # Error handling: Invalid user input
+    if [[ ! "$choice" =~ ^[1-3]$ ]]; then
+        echo "Error: Invalid choice. Please enter a number between 1 and 3." >&2
+        exit 1
+    fi
+    
+    # Get selected log details
+    index=$((choice-1))
+    log_file="${LOG_FILES[$index]}"
+    log_name="${LOG_NAMES[$index]}"
+    archive_subdir="${ARCHIVE_SUBDIRS[$index]}"
+    
+    source_path="$ACTIVE_LOGS/$log_file"
+    archive_dir="$ARCHIVE_BASE/$archive_subdir"
+    
+    echo "Archiving $log_name log..."
+    
+    # Error handling: Missing log files
+    if [ ! -f "$source_path" ]; then
+        echo "Error: Log file '$log_file' not found." >&2
+        exit 1
+    fi
+    
+    # Create archive directory if it doesn't exist
+    mkdir -p "$archive_dir"
+    
+    # Error handling: Archive directory issues
+    if [ ! -d "$archive_dir" ]; then
+        echo "Error: Failed to create archive directory '$archive_dir'." >&2
+        exit 1
+    fi
+    
+    # Generate timestamp and new filename
+    timestamp=$(get_timestamp)
+    log_basename="${log_file%.*}"  # Removes .log extension
+    archive_name="${log_basename}_${timestamp}.log"
+    dest_path="$archive_dir/$archive_name"
+    
+    # Move the active log to its designated archive folder
+    if ! mv "$source_path" "$dest_path"; then
+        echo "Error: Failed to move log file to archive." >&2
+        exit 1
+    fi
+    
+    # Create a new empty log file for continued monitoring
+    if ! touch "$source_path"; then
+        echo "Error: Failed to create new log file." >&2
+        exit 1
+    fi
+    
+    # Success message matching example exactly
+    echo "Successfully archived to $archive_subdir/$archive_name"
+    
+    exit 0
 }
 
+# Run main function
 main
