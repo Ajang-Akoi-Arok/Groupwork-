@@ -1,113 +1,41 @@
-digitalaxis@AjangMacBook-Pro Groupwork- % clear
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-digitalaxis@AjangMacBook-Pro Groupwork- % cd ~                    
-digitalaxis@AjangMacBook-Pro ~ % ls 
-Coding-lab_Group17	Downloads		Movies			alu-shell		demadolla		logs
-Cohort1BreakoutRoom1	Groupwork-		Music			alu-zero_day		heart_rate_log.log	reports
-Desktop			Jon			Pictures		clear			james_Bond		scenarios.sh
-Documents		Library			Public			dem.sh			log_archives		tiral.sh
-digitalaxis@AjangMacBook-Pro ~ % cd C
-cd: no such file or directory: C
-digitalaxis@AjangMacBook-Pro ~ % cd Coding-lab_Group17 
-digitalaxis@AjangMacBook-Pro Coding-lab_Group17 % ls 
-README.md		archive_logs.sh		hospital_data		water_consumption.py
-analyze_logs.sh		heart_rate_monitor.py	temperature_recorder.py
-digitalaxis@AjangMacBook-Pro Coding-lab_Group17 % vi README.md 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+# Hospital Data Monitoring & Archival System
+
+## Project Objective
+Develop an automated log management system that:
+- Collects real-time patient health metrics and resource usage data
+- Provides controlled log archiving with user selection
+- Generates analytical reports with device statistics and temporal patterns
+
+## Directory Structure
+```
+project/
+├── hospital_data/
+│   ├── active_logs/
+│   │   ├── heart_rate_log.log
+│   │   ├── temperature_log.log
+│   │   └── water_usage_log.log
+│   ├── archives/
+│   │   ├── heart_data_archive/
+│   │   ├── temperature_archive/
+│   │   └── water_archive/
+│   └── reports/
+│       └── analysis_report.txt
+├── heart_monitor.py
+├── temp_sensor.py
+├── water_meter.py
+├── heart_rate_monitor.py
+├── temperature_recorder.py
+├── water_consumption.py
+├── archive_logs.sh
+├── analyze_logs.sh
+└── README.md
+```
+
+## System Components
+
+### Python Simulators
+1. **heart_monitor.py** - Simulates 2 heart rate monitors (60-100 BPM)
+2. **temp_sensor.py** - Simulates 2 temperature sensors (36.0-39.5°C)
 3. **water_meter.py** - Simulates water usage meter (1-10 units)
 
 ### Shell Scripts
@@ -132,13 +60,13 @@ tail -f hospital_data/active_logs/heart_rate_log.log
 ```bash
 ./archive_logs.sh
 ```
-Select option 1-3 to archive specific log type.
+Select option 1-3 to archive a specific log type.
 
 ### 4. Analyze Logs
 ```bash
 ./analyze_logs.sh
 ```
-Select option 1-3 to analyze specific log file.
+Select option 1-3 to analyze a specific log file.
 
 ### 5. Stop Monitoring
 ```bash
@@ -162,5 +90,3 @@ python3 water_meter.py stop
 - **Process Management**: Background processes with PID files
 
 ## Thanks
-
-
