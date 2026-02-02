@@ -15,11 +15,11 @@ echo "Select log to archive:"
 echo "1) Heart Rate"
 echo "2) Temperature"
 echo "3) Water Usage"
-read -p "Enter choice (1-3): " choice
+read -p "Enter Choice (1-3): " choice
 
 # Validate input
 if [[ ! "$choice" =~ ^[1-3]$ ]]; then
-    echo "Error: Invalid choice. Please enter 1, 2, or 3."
+    echo "Error: Invalid Choice. Please enter 1, 2, or 3."
     exit 1
 fi
 
