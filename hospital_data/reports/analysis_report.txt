@@ -398,3 +398,13 @@ Device analysis for Heart Rate log:
 
 Total log entries:      0
 
+=========================================
+Analysis Report - Mon Feb  2 16:59:37 SAST 2026
+Log file: temperature.log
+Device analysis for Temperature log:
+=========================================
+Temp_Recorder_A: 28 entries (First: 2026-02-02 16:58:34, Last: 2026-02-02 16:58:59)
+Temp_Recorder_B: 28 entries (First: 2026-02-02 16:58:34, Last: 2026-02-02 16:58:59)
+
+Total log entries:      56
+
